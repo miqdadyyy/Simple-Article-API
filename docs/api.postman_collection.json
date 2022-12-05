@@ -1,0 +1,628 @@
+{
+	"info": {
+		"_postman_id": "0e32c8f1-d69d-4e05-965c-10e7b56b87ac",
+		"name": "Jetdev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5514092"
+	},
+	"item": [
+		{
+			"name": "Create Article",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"How to Lorem Ipsum Dolor Sit\",\n    \"username\": \"Some Random Guy\",\n    \"content\": \"Vestibulum a tincidunt dolor. Mauris nec turpis a arcu rhoncus ultrices sit amet at felis. Aliquam erat volutpat. In eget ligula ut sem volutpat condimentum eu ut arcu. Cras lobortis sem vel est suscipit aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam a lacinia dolor, ac auctor mi.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/article",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"article"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World\",\n    \"username\": \"Miqdad\",\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget tincidunt risus, et auctor ipsum. Maecenas porttitor, lacus in accumsan dignissim, enim leo dignissim ante, vel laoreet tortor turpis id ipsum. Nulla eu pretium risus, in cursus nibh. Nulla faucibus ante feugiat tortor iaculis, et facilisis tortor sagittis. Ut dictum consectetur tortor vitae congue. Mauris aliquet congue nibh, ut elementum nisi porttitor sed. Vestibulum sapien magna, rhoncus eget urna vitae, euismod tincidunt nulla. Nullam pulvinar odio vehicula massa tincidunt, et sollicitudin nulla eleifend.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:07:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"parent_id\": 1,\n    \"username\": \"Miqdad Child's\",\n    \"content\": \"Just try the nested comment feature\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/article/:slug/comment",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"article",
+						":slug",
+						"comment"
+					],
+					"variable": [
+						{
+							"key": "slug",
+							"value": "how-to-lorem-ipsum-dolor-sit-702e058f"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 | Normal",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Miqdad\",\n    \"content\": \"Just try the comment feature\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article/:slug/comment",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article",
+								":slug",
+								"comment"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "how-to-lorem-ipsum-dolor-sit-702e058f"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:13:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "200 | Nested",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parent_id\": 1,\n    \"username\": \"Miqdad Child's\",\n    \"content\": \"Just try the nested comment feature\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article/:slug/comment",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article",
+								":slug",
+								"comment"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "how-to-lorem-ipsum-dolor-sit-702e058f"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:13:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "400 | Max Nest Comment is 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parent_id\": 2,\n    \"username\": \"Miqdad Child's\",\n    \"content\": \"Just try the nested comment feature\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article/:slug/comment",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article",
+								":slug",
+								"comment"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "how-to-lorem-ipsum-dolor-sit-702e058f"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:14:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"message\": \"Bad Request\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "404 | Parent Comment not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parent_id\": 999,\n    \"username\": \"Miqdad Child's\",\n    \"content\": \"Just try the nested comment feature\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article/:slug/comment",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article",
+								":slug",
+								"comment"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "how-to-lorem-ipsum-dolor-sit-702e058f"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:14:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"message\": \"Not Found\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Article",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Hello World\",\n    \"username\": \"Miqdad\",\n    \"content\": \"Lorem ipsum bang\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/article?limit=10&page=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"article"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "Can set limit of pagination"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Page Number"
+						},
+						{
+							"key": "search",
+							"value": "hello",
+							"description": "You can search by it's title",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World\",\n    \"username\": \"Miqdad\",\n    \"content\": \"Lorem ipsum bang\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article?limit=10&page=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Can set limit of pagination"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page Number"
+								},
+								{
+									"key": "search",
+									"value": "hello",
+									"description": "You can search by it's title",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:09:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "886"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"limit\": 10,\n        \"page\": 1,\n        \"total\": 2,\n        \"articles\": [\n            {\n                \"id\": 2,\n                \"username\": \"Some Random Guy\",\n                \"title\": \"How to Lorem Ipsum Dolor Sit\",\n                \"slug\": \"how-to-lorem-ipsum-dolor-sit-702e058f\",\n                \"thumbnail\": \"https://avatars.dicebear.com/api/identicon/how-to-lorem-ipsum-dolor-sit-702e058f.svg?size=256\",\n                \"content\": \"Vestibulum a tincidunt dolor. Mauris nec turpis a arcu rhoncus ultrices sit amet at felis. Aliquam e...\",\n                \"created_at\": \"2022-12-06T02:09:11+07:00\",\n                \"updated_at\": \"2022-12-06T02:09:11+07:00\"\n            },\n            {\n                \"id\": 1,\n                \"username\": \"Miqdad\",\n                \"title\": \"Hello World\",\n                \"slug\": \"hello-world-afdabb07\",\n                \"thumbnail\": \"https://avatars.dicebear.com/api/identicon/hello-world-afdabb07.svg?size=256\",\n                \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget tincidunt risus, et auctor ipsum....\",\n                \"created_at\": \"2022-12-06T02:07:46+07:00\",\n                \"updated_at\": \"2022-12-06T02:07:46+07:00\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Article Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Hello World\",\n    \"username\": \"Miqdad\",\n    \"content\": \"Lorem ipsum bang\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/article/:slug",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"article",
+						":slug"
+					],
+					"variable": [
+						{
+							"key": "slug",
+							"value": "how-to-lorem-ipsum-dolor-sit-702e058f",
+							"description": "For get article, should use slug for SEO purpose\n"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 | No Comment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World\",\n    \"username\": \"Miqdad\",\n    \"content\": \"Lorem ipsum bang\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article/:slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "how-to-lorem-ipsum-dolor-sit-702e058f",
+									"description": "For get article, should use slug for SEO purpose\n"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:11:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "707"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"article\": {\n            \"id\": 2,\n            \"username\": \"Some Random Guy\",\n            \"title\": \"How to Lorem Ipsum Dolor Sit\",\n            \"slug\": \"how-to-lorem-ipsum-dolor-sit-702e058f\",\n            \"thumbnail\": \"https://avatars.dicebear.com/api/identicon/how-to-lorem-ipsum-dolor-sit-702e058f.svg?size=256\",\n            \"content\": \"Vestibulum a tincidunt dolor. Mauris nec turpis a arcu rhoncus ultrices sit amet at felis. Aliquam erat volutpat. In eget ligula ut sem volutpat condimentum eu ut arcu. Cras lobortis sem vel est suscipit aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam a lacinia dolor, ac auctor mi.\",\n            \"created_at\": \"2022-12-06T02:09:11+07:00\",\n            \"updated_at\": \"2022-12-06T02:09:11+07:00\"\n        },\n        \"comments\": []\n    }\n}"
+				},
+				{
+					"name": "200 | With Comments",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World\",\n    \"username\": \"Miqdad\",\n    \"content\": \"Lorem ipsum bang\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article/:slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "how-to-lorem-ipsum-dolor-sit-702e058f",
+									"description": "For get article, should use slug for SEO purpose\n"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:15:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1062"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"article\": {\n            \"id\": 2,\n            \"username\": \"Some Random Guy\",\n            \"title\": \"How to Lorem Ipsum Dolor Sit\",\n            \"slug\": \"how-to-lorem-ipsum-dolor-sit-702e058f\",\n            \"thumbnail\": \"https://avatars.dicebear.com/api/identicon/how-to-lorem-ipsum-dolor-sit-702e058f.svg?size=256\",\n            \"content\": \"Vestibulum a tincidunt dolor. Mauris nec turpis a arcu rhoncus ultrices sit amet at felis. Aliquam erat volutpat. In eget ligula ut sem volutpat condimentum eu ut arcu. Cras lobortis sem vel est suscipit aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam a lacinia dolor, ac auctor mi.\",\n            \"created_at\": \"2022-12-06T02:09:11+07:00\",\n            \"updated_at\": \"2022-12-06T02:09:11+07:00\"\n        },\n        \"comments\": [\n            {\n                \"id\": 1,\n                \"sub_comments\": [\n                    {\n                        \"id\": 2,\n                        \"sub_comments\": null,\n                        \"username\": \"Miqdad Child's\",\n                        \"content\": \"Just try the nested comment feature\",\n                        \"created_at\": \"2022-12-06T02:13:57+07:00\",\n                        \"updated_at\": \"2022-12-06T02:13:57+07:00\"\n                    }\n                ],\n                \"username\": \"Miqdad\",\n                \"content\": \"Just try the comment feature\",\n                \"created_at\": \"2022-12-06T02:13:21+07:00\",\n                \"updated_at\": \"2022-12-06T02:13:21+07:00\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Hello World\",\n    \"username\": \"Miqdad\",\n    \"content\": \"Lorem ipsum bang\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/article/:slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"article",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "how-to-lorem-ipsum-dolor-sit-702e058fs",
+									"description": "For get article, should use slug for SEO purpose\n"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 19:12:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"message\": \"Not Found\",\n    \"data\": null\n}"
+				}
+			]
+		}
+	]
+}
