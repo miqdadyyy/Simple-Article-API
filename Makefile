@@ -1,7 +1,6 @@
 REPO = github.com/miqdadyyy
 DB_DSN ?= "mysql://miqdad:anone@tcp(127.0.0.1:3306)/devjets_assessment"
 
-
 http:
 	GOPRIVATE=${REPO} go run ./cmd/http/
 

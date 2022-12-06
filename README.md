@@ -14,7 +14,7 @@ By default this service will running on port `8080`
 ## Quick Start
 - Create empty database on your DBMS
 - Change database credentials on files below
-  - `Makefile:7`
+  - `Makefile:2`
   - `config/local.yaml:7`
 - Run `make start`
 
