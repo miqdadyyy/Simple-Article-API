@@ -14,7 +14,11 @@ import (
 
 func main() {
 	fatalChan := make(chan error)
-	cfg := config.GetConfig("local")
+	environment := os.Getenv("APP_ENV")
+	if environment == "" {
+		environment = "local"
+	}
+	cfg := config.GetConfig(environment)
 
 	app := fiber.New()
 

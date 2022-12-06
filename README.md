@@ -11,6 +11,13 @@ This project is for serving api for simple blog service with features :
 For more API documentation visit [here](./docs/api.md)  
 By default this service will running on port `8080`
 
+## Quick Start
+- Create empty database on your DBMS
+- Change database credentials on files below
+  - `Makefile:7`
+  - `config/local.yaml:7`
+- Run `make start`
+
 ## Project Structure
 In this project I use [Golang Standard Project Layout](https://github.com/golang-standards/project-layout) 
 with several modification by removing some directory that I don't needed.
@@ -47,6 +54,9 @@ with several modification by removing some directory that I don't needed.
 - [Wire](github.com/google/wire)
 - [Migrate](https://github.com/golang-migrate/migrate)
 - [Lint](https://golangci-lint.run/)
+
+## Database Diagram
+![ERD](docs/erd.png)
 
 ## Usefull Commands
 I use makefile to run several command that needed to run this project

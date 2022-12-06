@@ -1,5 +1,6 @@
 vendor/
 .idea/
 out/
+cmd/http/app
 
 coverage.out

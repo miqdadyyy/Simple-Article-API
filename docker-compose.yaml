@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  database:
+    container_name: database
+    image: mysql
+    environment:
+      MYSQL_DATABASE: devjets_assessment
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: anone
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+
+  migrate:
+    image: migrate/migrate
+    command: -path=/migrations -database "mysql://dev:anone@tcp(database:3306)/devjets_assessment" up
+    restart: on-failure
+    volumes:
+      - ./tools/migrations:/migrations
+    links:
+      - database
+
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      APP_ENV: docker
+      DB_DSN: mysql://dev:anone@tcp(database:3306)/devjets_assessment
+    ports:
+      - "8080:8080"
+    links:
+      - database
